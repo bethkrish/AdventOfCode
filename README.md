@@ -1,2 +1,2 @@
 # AdventOfCode
-Advent Of Code project - 2023
+Advent Of Code project-2023
