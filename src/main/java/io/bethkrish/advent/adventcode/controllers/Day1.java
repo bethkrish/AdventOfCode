@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class Day1 {
 
 
-    Resource inputFile = new ClassPathResource("input.txt");
+    Resource inputFile = new ClassPathResource("input-1.txt");
 
     /**
      * Calculates the sum of calibration values from an input file.
