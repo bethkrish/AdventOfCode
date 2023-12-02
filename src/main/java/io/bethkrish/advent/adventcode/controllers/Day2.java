@@ -48,7 +48,6 @@ public class Day2 {
             List<HashMap<String, Integer>> rounds = new ArrayList<>();
             for (String set : setDetails) {
 
-                //log.info(gameID + "->" + setId + "->" + set);
                 HashMap<String, Integer> setScores = getSetHashMap(set.trim());
                 //Add all rounds to Game
                 rounds.add(setScores);
@@ -62,7 +61,6 @@ public class Day2 {
         String returnValue = "";
         for (Integer id : gameHashMap.keySet()) {
             returnValue = returnValue + id + ": " + gameHashMap.get(id);
-//            log.info( id + ": " + gameHashMap.get(id));
         }
 
         //By this time we have got the HashMap built. Now it is time to do the validation asked in the puzzle
@@ -70,7 +68,6 @@ public class Day2 {
         int sumOfGameIds = 0;
         for (Integer id : gameHashMap.keySet()) {
             if (isThisGamePossible(gameHashMap.get(id))) {
-                log.info("{} is Possible Game", id);
                 sumOfGameIds = sumOfGameIds + id;
             }
             ;
@@ -94,27 +91,22 @@ public class Day2 {
         for (HashMap<String, Integer> score : gameScore) {
             for (String cubeColour : score.keySet()) {
                 Integer count = score.get(cubeColour);
-                log.info("{} colour count is {}",cubeColour,count);
                 if (cubeColour.equals("red")) {
                     if (count.intValue() > minRedRequired) {
                         minRedRequired = count.intValue();
-                        log.info("Red Power is set to {}", minRedRequired );
                     }
                 } else if (cubeColour.equals("green")) {
                     if (count.intValue() > minGreenRequired) {
 
                         minGreenRequired = count.intValue();
-                        log.info("Red Power is set to {}", minGreenRequired );
                     }
                 } else if (cubeColour.equals("blue")) {
                     if (count.intValue() > minBlueRequired) {
                         minBlueRequired = count.intValue();
-                        log.info("Red Power is set to {}", minBlueRequired );
                     }
                 }
             }
         }
-        log.info("Power value for Game this game is "+minRedRequired * minGreenRequired * minBlueRequired);
         return minRedRequired * minGreenRequired * minBlueRequired;
     }
 
@@ -149,7 +141,6 @@ public class Day2 {
      * @return
      */
     private HashMap<String, Integer> getSetHashMap(String scores) {
-        //log.info("Input String is {}", scores);
         HashMap<String, Integer> scoresHashMap = new HashMap<>();
         String cubeCountsValues[] = scores.split(",");
         for (String value : cubeCountsValues) {
